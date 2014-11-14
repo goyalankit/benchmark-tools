@@ -1,0 +1,74 @@
+#!/bin/bash
+
+init() {
+    # load papi module - API to get hardware counters.
+    module load papi
+
+    # load llvm to use clang compiler.    
+    module load llvm
+}
+
+run() {
+    
+    # load modules at stampede
+    init
+
+    # compile the code once.
+    #clang -g -O0 -DDBG -w -I/opt/apps/papi/5.3.0/x86_64/include -Wl,-rpath,$TACC_PAPI_LIB -L$TACC_PAPI_LIB -lpapi papi_helper.c $1 -o a.out."$$"
+     macpo.sh -g -O0 -DDBG -w -I/opt/apps/papi/5.3.0/x86_64/include -Wl,-rpath,$TACC_PAPI_LIB -L$TACC_PAPI_LIB -lpapi papi_helper.c $1 -o numa.out -std=c99
+    #clang -g -O0 -w -I/opt/apps/papi/5.3.0/include -Wl,-rpath,$TACC_PAPI_LIB -L$TACC_PAPI_LIB
+#	-lpapi /scratch/02681/natviv/workspace/po-compiler/hardware-counters/papi_helper.c $1 -o a.out."$$" 
+	#	-I/scratch/02681/natviv/workspace/benchmark-search/C/csmith/runtime/
+    
+    # TODO: Apply optimization passes using opt.
+
+    # TODO: get the static features.
+
+    # use PAPI to get hardware counters.
+    get_counters
+
+    # clean the generated files.
+    clean
+}
+
+get_counters(){
+
+    echo "Running 1"
+    # Run for first 9 counters
+    export ITER_COUNT=1
+    export NUM_EVENTS=9
+    # ./a.out."$$" 10 >> results
+    ./numa.out
+    
+    echo "Running 2"
+    # Run for next 6 counters
+    export ITER_COUNT=2
+    export NUM_EVENTS=6
+    # ./a.out."$$" 10 >> results
+    ./numa.out
+    
+    echo "Running 3"
+    # Run for next 10 counters
+    export ITER_COUNT=3
+    export NUM_EVENTS=10
+    # ./a.out."$$" 10 >> results
+    ./numa.out
+
+    # insert a new line characted at the end of row. 
+    echo "\n" >> results
+
+}
+
+clean(){
+    rm -rf a.out."$$"
+}
+
+case $1 in
+    run) run $2;;
+clean) clean;;
+    clr) clr;;
+gcc | gc | g) gc $2;;
+    icc | ic | i) ic $2;;
+help ) echo "Usage $0 {run|clean|clr|gcc|icc|icrun|gcrun}";;
+    *) run $1;;
+esac
