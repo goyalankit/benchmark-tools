@@ -1,0 +1,157 @@
+[macpo] Analyzing logs created from the binary /work/02681/ankitg/benchmark-tools/test_scripts/random_access_macpo at Sun Nov 16 19:26:05 2014
+
+[macpo] Analyzing records for latency.
+Getting set cache conflicts
+Total Conflicts: 3892
+Conflicts for core number: 9
+set_num num_conflicts
+0 65
+1 70
+2 68
+3 61
+4 60
+5 55
+6 65
+7 83
+8 69
+9 68
+10 64
+11 54
+12 70
+13 55
+14 65
+15 73
+16 49
+17 70
+18 61
+19 57
+20 66
+21 55
+22 45
+23 71
+24 61
+25 64
+26 71
+27 54
+28 64
+29 70
+30 62
+31 65
+32 68
+33 59
+34 69
+35 69
+36 66
+37 71
+38 50
+39 53
+40 50
+41 61
+42 67
+43 50
+44 48
+45 52
+46 46
+47 47
+48 53
+49 50
+50 65
+51 66
+52 53
+53 56
+54 60
+55 59
+56 63
+57 51
+58 62
+59 62
+60 67
+61 57
+62 62
+63 50
+--------------------------------
+      L2 Cache Conflicts        
+--------------------------------
+Conflicts for core number: 9
+0 1.12595e-12
+1 1.74436e-12
+2 1.0847e-12
+3 8.37009e-14
+4 1.76613e-14
+5 1.38783e-12
+6 1.59685e-12
+7 1.26123e-11
+8 3.93033e-14
+9 4.2063e-12
+10 3.3486e-11
+11 4.90399e-12
+12 1.45692e-12
+13 1.18476e-12
+14 1.10765e-12
+15 1.3891e-13
+16 5.56937e-12
+17 1.10449e-14
+18 2.80822e-12
+19 2.48396e-13
+20 2.03055e-12
+21 1.34637e-12
+22 8.15721e-14
+23 1.84618e-12
+24 3.40627e-12
+25 2.08563e-13
+26 1.33848e-12
+27 1.35844e-13
+28 1.17111e-13
+29 1.36346e-12
+30 3.8075e-12
+31 2.68633e-13
+32 1.06108e-12
+33 1.84656e-13
+34 4.16811e-14
+35 4.98142e-13
+36 3.29635e-13
+37 8.1089e-13
+38 5.61562e-14
+39 3.7474e-13
+40 7.22844e-13
+41 2.6013e-13
+42 3.05231e-14
+43 4.75081e-13
+44 2.49723e-13
+45 8.54345e-13
+46 1.74694e-13
+47 1.57271e-12
+48 2.80059e-13
+49 2.13471e-12
+50 5.95658e-13
+51 1.32142e-12
+52 4.93798e-12
+53 1.02099e-11
+54 1.6094e-11
+55 4.01184e-12
+56 9.35931e-12
+57 5.7947e-12
+58 1.19685e-12
+59 3.30147e-12
+60 1.01036e-12
+61 3.48355e-13
+62 1.0568e-12
+63 5.2597e-13
+
+[macpo] Reuse distances:
+var: sequence: 3 (3749 times) inf. (251 times).
+var: matice2: 1 (4017 times) inf. (251 times) 369 (23 times).
+var: matice1: inf. (250 times) 371 (25 times) 55 (22 times).
+
+[macpo] Cache conflicts:
+var: sequence, conflict ratio: 0%.
+var: matice2, conflict ratio: 0%.
+var: matice1, conflict ratio: 0%.
+
+[macpo] Analyzing records for stride values.
+var: sequence: 1 (3999 times).
+var: matice2: 0 (4001 times) 127 (3855 times) 49 (5 times).
+var: matice1: 127 (3855 times) 49 (5 times) 111 (4 times).
+
+[macpo] Analyzing records for vector stride values.
+

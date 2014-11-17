@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SEED[0]=59729 
+SEED[1]=51517
+SEED[2]=69401 
+SEED[3]=95219 
+SEED[4]=103483 
+SEED[5]=76543
+
+OUTPUT=output
+
+for seed in ${SEED[*]};
+do
+    for iter in `seq 1 6`;
+    do
+        echo "Running iteration $iter for $seed"
+
+        # run with the seed
+        ./random_access_macpo $seed
+
+        # this generates macpo.out file
+        FILENAME="macpo_results_"$seed"_"$iter
+        macpo-analyze macpo.out &> $OUTPUT/$FILENAME
+
+        echo "Removing macpo.out"
+        # remove the previous macpo.out
+        rm -rf macpo.out macpo.*.out
+    done
+done
+
+
+for seed in ${SEED[*]};
+do
+    for iter in `seq 1 6`;
+    do
+        echo "Running iteration $iter for $seed"
+        # run with the seed
+        FILENAME="papi_results_"$seed"_"$iter
+        ./random_access_papi $seed &> $OUTPUT/$FILENAME
+    done
+done
+
+
+for i in `ls macpo_re*`; do cat $i | grep Total ; done
