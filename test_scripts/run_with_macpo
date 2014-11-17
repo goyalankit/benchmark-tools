@@ -41,4 +41,4 @@ do
 done
 
 
-for i in `ls macpo_re*`; do cat $i | grep Total ; done
+for i in `ls $OUTPUT/macpo_re*`; do cat $i | grep Total ; done
