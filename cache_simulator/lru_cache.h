@@ -1,5 +1,5 @@
-#ifndef _LRUCACHE_HPP_INCLUDED_
-#define _LRUCACHE_HPP_INCLUDED_
+#ifndef _LRU_CACHE_H
+#define _LRU_CACHE_H
 
 #include <unordered_map>
 #include <list>
@@ -65,5 +65,5 @@ private:
 
 } // namespace lru
 
-#endif  /* _LRUCACHE_HPP_INCLUDED_ */
+#endif  /* _LRU_CACHE_H */
 
